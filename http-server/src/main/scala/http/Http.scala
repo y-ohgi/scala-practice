@@ -11,8 +11,10 @@ object Http{
     val out = socket.getOutputStream
 
     val request: Request = Request.parse(in)
+
     val response: Response = Response.generate(request)
 
+    //println(response.header + response.body)
     out.write( (response.header + response.body).getBytes(StandardCharsets.UTF_8))
     out.flush
 
